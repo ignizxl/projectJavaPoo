@@ -14,11 +14,11 @@ public class Passageiro {
     private int idade;
     private boolean meiaEntrada;
 
-    public Passageiro(String nome, String registroIdentidade, int idade, boolean meiaEntrada) {
+    public Passageiro(String nome, String registroIdentidade, int idade) {
         this.nome = nome;
         this.registroIdentidade = registroIdentidade;
         this.idade = idade;
-        this.meiaEntrada = meiaEntrada;
+        this.meiaEntrada = false;
     }
 
     public String getNome() {

@@ -4,8 +4,7 @@
  */
 package com.mycompany.projetoifpb;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 /**
  *
@@ -15,27 +14,20 @@ public class Viagem {
     private String origem;
     private String destino;
     private boolean emDeslocamento;
-    private List<Passageiro> passageiros;
     private Motorista motorista;
     private double valorPassagem;
-    private int capacidadeOnibus;
-    private int passageirosInteiros;
-    private int passageirosMeiaEntrada;
-    private double totalArrecadado;
+    private Passageiro passageiro;
+    private boolean meiaPassagem;
 
-    public Viagem(String origem, String destino, boolean emDeslocamento, List<Passageiro> passageiros, Motorista motorista, double valorPassagem, int capacidadeOnibus, int passageirosInteiros, int passageirosMeiaEntrada, double totalArrecadado) {
+    public Viagem(String origem, String destino, Motorista motorista, Passageiro passageiro, double valorPassagem, boolean meiaPassagem) {
         this.origem = origem;
         this.destino = destino;
-        this.emDeslocamento = emDeslocamento;
-        this.passageiros = new ArrayList<Passageiro>();
         this.motorista = motorista;
+        this.passageiro = passageiro;
         this.valorPassagem = valorPassagem;
-        this.capacidadeOnibus = capacidadeOnibus;
-        this.passageirosInteiros = passageirosInteiros;
-        this.passageirosMeiaEntrada = passageirosMeiaEntrada;
-        this.totalArrecadado = totalArrecadado;
+        this.meiaPassagem = meiaPassagem;
     }
-
+    
     public String getOrigem() {
         return origem;
     }
@@ -54,12 +46,6 @@ public class Viagem {
     public void setEmDeslocamento(boolean emDeslocamento) {
         this.emDeslocamento = emDeslocamento;
     }
-    public List<Passageiro> getPassageiros() {
-        return passageiros;
-    }
-    public void setPassageiros(List<Passageiro> passageiros) {
-        this.passageiros = passageiros;
-    }
     public Motorista getMotorista() {
         return motorista;
     }
@@ -72,29 +58,23 @@ public class Viagem {
     public void setValorPassagem(double valorPassagem) {
         this.valorPassagem = valorPassagem;
     }
-    public int getCapacidadeOnibus() {
-        return capacidadeOnibus;
+    public Passageiro getPassageiro() {
+        return passageiro;
     }
-    public void setCapacidadeOnibus(int capacidadeOnibus) {
-        this.capacidadeOnibus = capacidadeOnibus;
-    }
-    public int getPassageirosInteiros() {
-        return passageirosInteiros;
-    }
-    public void setPassageirosInteiros(int passageirosInteiros) {
-        this.passageirosInteiros = passageirosInteiros;
-    }
-    public int getPassageirosMeiaEntrada() {
-        return passageirosMeiaEntrada;
-    }
-    public void setPassageirosMeiaEntrada(int passageirosMeiaEntrada) {
-        this.passageirosMeiaEntrada = passageirosMeiaEntrada;
-    }
-    public double getTotalArrecadado() {
-        return totalArrecadado;
-    }
-    public void setTotalArrecadado(double totalArrecadado) {
-        this.totalArrecadado = totalArrecadado;
+    public void setPassageiro(Passageiro passageiro) {
+        this.passageiro = passageiro;
     } 
+    public boolean isMeiaPassagem() {
+        return meiaPassagem;
+    }
+    public void setMeiaPassagem(boolean meiaPassagem) {
+        this.meiaPassagem = meiaPassagem;
+    }
     
+    @Override
+    public String toString() {
+        return "Viagem{" + "\n Origem : " + origem + "\n Destino: " + destino + "\n Em Deslocamento: " + emDeslocamento +
+                "\n Motorista: " + this.getMotorista().getNome() + "\n Valor da Passagem: " + valorPassagem  
+                + "\n Passageiro: " + this.passageiro.getNome() + "\n =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=" + '}';
+    }
 }
